@@ -4,7 +4,7 @@ import { thema } from "../../style/thema";
 
 export const Header = styled.header`
     display:flex;
-    
+    justify-content: center;
     width: 100%;
     height:180px;
     min-width: auto;

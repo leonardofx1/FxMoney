@@ -1,16 +1,13 @@
-import Header from "./components/Header"
+
+import Home from "./pages/Home"
 
 const  App = () => {
 
 
   return (
-    <div>
-      <Header/>
-      <p>ola</p>
-      <span>ola</span>
-      <div>wed</div>
-      <p>ola</p>
-    </div>
+    <>
+      <Home />
+    </>
   )
 }
 
