@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { thema } from '../../style/thema'
 
 
-export const TransactionContainer = styled.section `
+export const TransactionContainer = styled.section`
     display:flex;
     justify-content: center;
+    flex-wrap:wrap;
     width:100%;
     margin-top:-3rem;
     height:100px;
@@ -12,7 +13,7 @@ export const TransactionContainer = styled.section `
 
 `
 
-export const TransactionSummary = styled.div `
+export const TransactionSummary = styled.div`
     display: flex;
     flex-wrap:wrap;
     align-items:center;
@@ -20,12 +21,12 @@ export const TransactionSummary = styled.div `
     width:352px;
     height: 137px;
     padding:2rem;
-    background-color:${(props) => props.color === 'green' ? thema.colors.green :thema.colors.grayLigth};
+    background-color:${(props) => props.color === 'green' ? thema.colors.green : thema.colors.grayLigth};
     border-radius:${thema.border.borderRadius};
 
 `
 
-export const TransactionIcon = styled.div `
+export const TransactionIcon = styled.div`
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +39,20 @@ export const TransactionIcon = styled.div `
     }
 `
 
-export const Money = styled.strong `
+export const Money = styled.strong`
     font-size: 2rem;
     color:${thema.colors.money};
+`
+
+export const TransactionTable = styled.table`
+
+
+    width: 100%;
+    max-width: 1290px;
+    tbody {
+        width: 100%;
+        display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    }
 `
