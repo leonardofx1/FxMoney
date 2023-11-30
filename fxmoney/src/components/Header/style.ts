@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { thema } from "../../style/thema";
+import * as Dialog from '@radix-ui/react-dialog'
 
 
 export const Header = styled.header`
@@ -29,7 +30,7 @@ export const HeaderContainer = styled.section`
     } 
 `
 
-export const NewTransaction = styled.button `
+export const NewTransaction = styled(Dialog.Trigger) `
     padding:1rem;
 
     border: none;
