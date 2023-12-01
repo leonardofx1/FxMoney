@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import {thema} from './thema'
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -6,6 +7,6 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif;
-        background-color:#1E1E1E;
+        background-color:${thema.colors.grayBackground};
     }
 `;

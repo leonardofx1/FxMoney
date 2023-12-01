@@ -5,13 +5,15 @@ import * as Radio from "@radix-ui/react-radio-group";
 
 export const FormContainer = styled.form`
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-top: 1rem;
   width: 100%;
   height: 80%;
-  box-sizing: border-box;
+
+  flex-direction: column;
+  justify-content: space-evenly;
   gap: 2rem;
+  
+  margin-top: 1rem;
+  box-sizing: border-box;
   section {
     display: flex;
     flex-direction: column;
@@ -31,7 +33,7 @@ export const FormContainer = styled.form`
     }
 
     outline-color: ${thema.colors.gray};
-    outline-width: .1px;
+    outline-width: 0.1px;
   }
 `;
 export const RadioRoot = styled(Radio.Root)`
@@ -50,13 +52,27 @@ export const RadioTransaction = styled(Radio.Item)`
   font-weight: 500;
   font-size: 1.2rem;
 
-  width: 100%;
+  width: 50%;
   max-width: 258px;
   height: 58px;
 
   border: none;
   border-radius: ${thema.border.borderRadius};
   background-color: #29292e;
+
+  svg {
+    color: ${(props) =>
+      props.value === "exit" ? thema.colors.redDark : thema.colors.green};
+  }
+
+  &[data-state="checked"] {
+    background-color: ${(props) =>
+      props.value === "exit" ? thema.colors.redDark : thema.colors.green};
+    color: white;
+    svg {
+      color: white;
+    }
+  }
 `;
 
 export const ButtonSubmit = styled.button`

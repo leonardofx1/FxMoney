@@ -6,6 +6,7 @@ import {
   ArrowCircleUp,
   CurrencyDollar,
 } from "@phosphor-icons/react";
+import SearchBar from "../SearchBar";
 
 const Transaction = () => {
   return (
@@ -31,7 +32,7 @@ const Transaction = () => {
         </S.TransactionIcon>
         <S.Money>215314</S.Money>
       </S.TransactionSummary>
-
+      <SearchBar />
       <S.TransactionTable>
         <tbody>
         <   TransactionTable/>

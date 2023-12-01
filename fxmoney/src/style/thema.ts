@@ -7,6 +7,7 @@ export const thema = {
         gray:'#121214',
         grayLigth:'#29292E',
         grayFont:'#C4C4CC',
+        grayBackground:'#1E1E1E',
         money:'#E1E1E6',
         redDark:'#AA2834',
         
