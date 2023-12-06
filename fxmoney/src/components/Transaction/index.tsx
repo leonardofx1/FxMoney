@@ -7,8 +7,18 @@ import {
   CurrencyDollar,
 } from "@phosphor-icons/react";
 import SearchBar from "../SearchBar";
+import { transactionContext } from "../../context/TransactionProvider";
+import { useContext, useEffect } from "react";
 
 const Transaction = () => {
+  const{ transaction, getTransactionStorage} = useContext(transactionContext)!
+
+  useEffect(() => {
+      getTransactionStorage('transaction')
+     
+ 
+  },[])
+
   return (
     <S.TransactionContainer>
       <S.TransactionSummary>
@@ -35,8 +45,10 @@ const Transaction = () => {
       <SearchBar />
       <S.TransactionTable>
         <tbody>
-        <   TransactionTable/>
-        <   TransactionTable/>    <   TransactionTable/>    <   TransactionTable/>    <   TransactionTable/>    <   TransactionTable/>    <   TransactionTable/>
+      {
+        transaction !== null  && transaction.map(() => <TransactionTable/>)
+      }
+                           
         </tbody>
       </S.TransactionTable>
       
