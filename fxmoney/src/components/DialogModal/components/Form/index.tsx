@@ -3,19 +3,19 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as S from "./style";
 import { ArrowCircleDown, ArrowCircleUp } from "@phosphor-icons/react";
-import { TrasactionType, schema } from '../../../../@types/types';
+import { TransactionType, schema } from '../../../../@types/types';
 import { useContext } from "react";
 import { transactionContext } from "../../../../context/TransactionProvider";
 
 
 const Form = () => {
 
-  const {setTransactionStorage, transaction} = useContext(transactionContext)
+  const {setTransactionStorage} = useContext(transactionContext)
   const { register, control, handleSubmit } = useForm({
     resolver: zodResolver(schema),
   });
 
-  const handleAddTransaction = (value: TrasactionType) => {
+  const handleAddTransaction = (value: TransactionType) => {
     setTransactionStorage(value)
   };
 

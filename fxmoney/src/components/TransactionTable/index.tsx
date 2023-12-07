@@ -1,20 +1,21 @@
+import { TransactionType } from '../../@types/types'
 import * as S from './styles'
 
 
 
 
-const TransactionTable = () => {
+const TransactionTable = ({description, price, category, date, type}:TransactionType) => {
 
 
     return (
 
           <S.TransactionHistory>
           <S.TransactionTableColumn color='grayFont'>
-              Desenvolvimento de Site 
+           {description}
           </S.TransactionTableColumn>
-          <S.TransactionTableColumn color='green'>123545</S.TransactionTableColumn>
-          <S.TransactionTableColumn color='grayFont'>venda</S.TransactionTableColumn>
-          <S.TransactionTableColumn color='grayFont'>1212/1255/3213</S.TransactionTableColumn>
+          <S.TransactionTablePrice varient={type}>{price}</S.TransactionTablePrice>
+          <S.TransactionTableColumn color='grayFont'>{category}</S.TransactionTableColumn>
+          <S.TransactionTableColumn color='grayFont'>{date}</S.TransactionTableColumn>
       </S.TransactionHistory>
       
     )

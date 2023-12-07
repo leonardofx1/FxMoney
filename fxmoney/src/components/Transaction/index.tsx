@@ -9,6 +9,7 @@ import {
 import SearchBar from "../SearchBar";
 import { transactionContext } from "../../context/TransactionProvider";
 import { useContext, useEffect } from "react";
+import { TransactionType } from "../../@types/types";
 
 const Transaction = () => {
   const{ transaction, getTransactionStorage} = useContext(transactionContext)!
@@ -46,7 +47,7 @@ const Transaction = () => {
       <S.TransactionTable>
         <tbody>
       {
-        transaction !== null  && transaction.map(() => <TransactionTable/>)
+        transaction !== null  && transaction.map((transaction: TransactionType) => <TransactionTable {...transaction} />)
       }
                            
         </tbody>
