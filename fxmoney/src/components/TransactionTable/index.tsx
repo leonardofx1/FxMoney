@@ -1,4 +1,5 @@
 import { TransactionType } from '../../@types/types'
+import { formatCurrency, formatDate } from '../../utils/formatDatePrice'
 import * as S from './styles'
 
 
@@ -13,9 +14,9 @@ const TransactionTable = ({description, price, category, date, type}:Transaction
           <S.TransactionTableColumn color='grayFont'>
            {description}
           </S.TransactionTableColumn>
-          <S.TransactionTablePrice varient={type}>{price}</S.TransactionTablePrice>
+          <S.TransactionTablePrice varient={type}>{formatCurrency(price)}</S.TransactionTablePrice>
           <S.TransactionTableColumn color='grayFont'>{category}</S.TransactionTableColumn>
-          <S.TransactionTableColumn color='grayFont'>{date}</S.TransactionTableColumn>
+          <S.TransactionTableColumn color='grayFont'>{formatDate(date)}</S.TransactionTableColumn>
       </S.TransactionHistory>
       
     )
