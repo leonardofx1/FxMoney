@@ -1,28 +1,32 @@
 import {useContext} from 'react';
-import Transaction from '../Transaction/index';
+
 import { transactionContext } from '../../context/TransactionProvider';
 import { TransactionType } from '../../@types/types';
 
 type useSummaryTransactionType = {
-    someTransaction: (type:string) => number
+    sumTransaction: (type:string) => number
 }
 
 const useSummaryTransaction =():useSummaryTransactionType => {
     const { transaction} = useContext(transactionContext)!
 
 
-const someTransaction = (typeTransaction:string):number => {
+const sumTransaction = (typeTransaction:string = 'total'):number => {
    
-    const some:number = transaction?.reduce((acc: number, transaction:TransactionType) => {
-       
-        acc = transaction.price
-           
-            return acc
+    const sum:number = transaction?.reduce((acc: number, trans:TransactionType):number => {
+        if(typeTransaction === trans.type){
+           return  acc += trans.price
+        }else if (typeTransaction === 'total'){
+            return acc = trans.type === 'exit'? acc - trans.price : acc + trans.price
+        }
+            
+        
+        return acc
     }, 0)
 
-    return some
+    return sum
 } 
-return {someTransaction}
+return {sumTransaction}
     
 
 }

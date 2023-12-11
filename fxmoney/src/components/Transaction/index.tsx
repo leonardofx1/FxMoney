@@ -15,10 +15,10 @@ import useSummaryTransaction from "../hooks/reducerTransactionPrice";
 
 const Transaction = () => {
   const{ transaction, getTransactionStorage} = useContext(transactionContext)!
-   const  { someTransaction}= useSummaryTransaction()
+   const  { sumTransaction}= useSummaryTransaction()
   useEffect(() => {
       getTransactionStorage('transaction')
-    someTransaction('entry')
+    sumTransaction('entry')
  
   },[])
 
@@ -29,21 +29,21 @@ const Transaction = () => {
           <span>Entradas</span>{" "}
           <ArrowCircleDown size={38} color={thema.colors.green} />
         </S.TransactionIcon>
-        <S.Money>215314</S.Money>
+        <S.Money>{sumTransaction('entry')}</S.Money>
       </S.TransactionSummary>
       <S.TransactionSummary>
         <S.TransactionIcon>
           <span>Saida</span>
           <ArrowCircleUp size={38} color={thema.colors.redDark} />
         </S.TransactionIcon>
-        <S.Money>215314</S.Money>
+        <S.Money>{sumTransaction('exit')}</S.Money>
       </S.TransactionSummary>
       <S.TransactionSummary color="green">
         <S.TransactionIcon>
           <span>Total</span>
           <CurrencyDollar size={32} color={thema.colors.money} />
         </S.TransactionIcon>
-        <S.Money>215314</S.Money>
+        <S.Money>{sumTransaction('total')}</S.Money>
       </S.TransactionSummary>
       <SearchBar />
       <S.TransactionTable>

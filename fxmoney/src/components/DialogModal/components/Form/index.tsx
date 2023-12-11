@@ -1,5 +1,5 @@
 
-import { Controller, useForm } from "react-hook-form";
+import { Controller, FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as S from "./style";
 import { ArrowCircleDown, ArrowCircleUp } from "@phosphor-icons/react";
@@ -9,13 +9,21 @@ import useContextTransaction from "../../../../context/useContextTransaction";
 const Form = () => {
 
   const {setTransactionStorage} = useContextTransaction()
-  const { register, control, handleSubmit } = useForm({
+  const { register, control, handleSubmit, formState:{isValid} } = useForm({
     resolver: zodResolver(schema),
+    mode:'onChange'
   });
-
-  const handleAddTransaction = (value: TransactionType) => {
-    setTransactionStorage(value)
+  const handleAddTransaction = (values: FieldValues) => {
+    const value: TransactionType = {
+      description: values.description,
+      price: values.price,
+      type: values.type,
+      date: values.date,
+      category: values.category,
+    };
+    setTransactionStorage(value);
   };
+  
 
   return (
     <>
@@ -37,8 +45,9 @@ const Form = () => {
           )}
         />
         <section>
-          <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>
-        </section>
+    
+        <S.ButtonSubmit  disabled={!isValid}>Cadastrar</S.ButtonSubmit>
+       </section>
       </S.FormContainer>
     </>
   );

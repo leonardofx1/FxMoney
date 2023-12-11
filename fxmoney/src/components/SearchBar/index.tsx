@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { searchSchema } from '../schema/schema';
 import useContextTransaction from '../../context/useContextTransaction';
-import { TransactionType } from '../../@types/types';
+
 import { useEffect } from 'react';
-import Transaction from '../Transaction/index';
+
 
 
 
@@ -19,7 +19,7 @@ const SearchBar = () => {
   
     const handleSearchTransaction =({search}:{search:string})=> {
        
-        setTransaction(transaction.filter((transaction) => transaction.category === search || transaction.description === search))
+        setTransaction(transaction.filter((trans) => trans.category === search || trans.description === search))
     }
     const busca = watch('search')
     useEffect(()=> {

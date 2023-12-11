@@ -20,7 +20,7 @@ export const TransactionProvider = ({ children }: { children: React.ReactNode })
         getTransaction !== null && setTransaction(getTransaction)
       
     }
-    const setTransactionStorage = (newTransaction:  TransactionType) => {
+    const setTransactionStorage = (newTransaction:TransactionType) => {
 
 
         const historyTransaction = localStorage.getItem('transaction')
