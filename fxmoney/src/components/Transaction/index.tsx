@@ -11,12 +11,14 @@ import { transactionContext } from "../../context/TransactionProvider";
 import { useContext, useEffect } from "react";
 import { TransactionType } from "../../@types/types";
 
+import useSummaryTransaction from "../hooks/reducerTransactionPrice";
+
 const Transaction = () => {
   const{ transaction, getTransactionStorage} = useContext(transactionContext)!
-
+   const  { someTransaction}= useSummaryTransaction()
   useEffect(() => {
       getTransactionStorage('transaction')
-     
+    someTransaction('entry')
  
   },[])
 
@@ -45,6 +47,7 @@ const Transaction = () => {
       </S.TransactionSummary>
       <SearchBar />
       <S.TransactionTable>
+  
         <tbody>
       {
         transaction !== null  && transaction.map((transaction: TransactionType) => <TransactionTable {...transaction} />)

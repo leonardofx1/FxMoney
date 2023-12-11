@@ -3,8 +3,10 @@
 export const formatCurrency = (price: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
   price
 )
+ 
+type dateType =  string 
+export const formatDate = (date:Date) => {
 
-export const formatDate = (date: string) => {
-  const dateNumber = Date.parse(date)
-  return new Intl.DateTimeFormat('pt-BR').format(dateNumber);
+
+  return new Intl.DateTimeFormat('pt-BR').format(date);
 }

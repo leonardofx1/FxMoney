@@ -1,32 +1,33 @@
 import { createContext,  useState } from "react";
-import { TrasactionType } from '../@types/types';
+import {  TransactionType } from '../@types/types';
 
 
-type TrasactionContextType = {
-    transaction: TrasactionType[] | null
-    setTransactionStorage: (newTransaction: TrasactionType) => void
+export type TransactionContextType = {
+    transaction: TransactionType[] 
+    setTransactionStorage: (newTransaction:  TransactionType) => void
     getTransactionStorage: (arg:string) => void
+    setTransaction: (state:TransactionType[] | TransactionType) => void
 }
 
-export const transactionContext = createContext<TrasactionContextType | null>(null)
+export const transactionContext = createContext<TransactionContextType | null>(null)
 
 export const TransactionProvider = ({ children }: { children: React.ReactNode }) => {
-    const [transaction, setTransaction] = useState<TrasactionType[] | null>(null)
+    const [transaction, setTransaction] = useState< TransactionType[] | []>([])
 
     const getTransactionStorage = (key:string) => {
        
-        const getTransaction:TrasactionType[] = JSON.parse(localStorage.getItem(key)!)
+        const getTransaction: TransactionType[] = JSON.parse(localStorage.getItem(key)!)
         getTransaction !== null && setTransaction(getTransaction)
       
     }
-    const setTransactionStorage = (newTransaction: TrasactionType) => {
+    const setTransactionStorage = (newTransaction:  TransactionType) => {
 
 
         const historyTransaction = localStorage.getItem('transaction')
 
         if (historyTransaction !== null) {
             const existingTransactions = JSON.parse(historyTransaction);
-            existingTransactions.push(newTransaction);
+            existingTransactions[existingTransactions.length] = newTransaction
 
             setTransaction(existingTransactions)
 
@@ -44,7 +45,7 @@ export const TransactionProvider = ({ children }: { children: React.ReactNode })
 
 
     return (
-        <transactionContext.Provider value={{ setTransactionStorage, transaction, getTransactionStorage}}>
+        <transactionContext.Provider value={{ setTransactionStorage, transaction, getTransactionStorage, setTransaction}}>
             {children}
         </transactionContext.Provider>
     )

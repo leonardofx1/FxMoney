@@ -17,13 +17,19 @@ type ColorProps = {
 
 export const TransactionTableColumn = styled.td<ColorProps>`
   color: ${(props) => thema.colors[props.color]};
-
+ 
+  width:100%;
   &:nth-child(2) {
     font-weight: bold;
     font-size: 1.2rem;
+
+  }
+
+  &:last-child{
+    text-align: end;
   }
 `;
-type PriceProps = {varient:'entry' | 'exit'}
-export const TransactionTablePrice = styled(TransactionTableColumn)<PriceProps>`
+type PriceProps = { varient: 'entry' | 'exit' }
+export const TransactionTablePrice = styled(TransactionTableColumn) <PriceProps>`
     color: ${(props) => props.varient === 'entry' ? thema.colors.green : thema.colors.redDark}
 `;

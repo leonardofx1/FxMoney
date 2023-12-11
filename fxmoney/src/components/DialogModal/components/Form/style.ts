@@ -28,8 +28,9 @@ export const FormContainer = styled.form`
     padding: 1.2rem;
     border: none;
     border-radius: 8px;
-    &:placeholder {
-      color: red;
+    color:${thema.colors.grayFont};
+    &::placeholder{
+      color:white;
     }
 
     outline-color: ${thema.colors.gray};
