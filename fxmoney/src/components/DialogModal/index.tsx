@@ -4,8 +4,9 @@ import { X } from '@phosphor-icons/react';
 import { thema } from '../../style/thema';
 import Form from './components/Form';
 
+type  SetOpenType = {setOpen:(state:boolean) =>void}
 
-const DialogModal = () => {
+const DialogModal = ({setOpen}:SetOpenType) => {
 
 
 
@@ -19,7 +20,7 @@ const DialogModal = () => {
                 <S.DialogTitle>
                     Transação
                 </S.DialogTitle>
-                <Form />
+                <Form setOpen={setOpen} />
             </S.DialogContent>
         </S.DialogOverlay>
     </Dialog.Portal>

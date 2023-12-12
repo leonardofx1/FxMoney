@@ -5,8 +5,11 @@ import * as S from "./style";
 import { ArrowCircleDown, ArrowCircleUp } from "@phosphor-icons/react";
 import { TransactionType, schema } from '../../../../@types/types';
 import useContextTransaction from "../../../../context/useContextTransaction";
+type SetOpenType = {
+  setOpen: (state: boolean) => void;
+};
 
-const Form = () => {
+const Form: React.FC<SetOpenType> = ({ setOpen }) => {
 
   const {setTransactionStorage} = useContextTransaction()
   const { register, control, handleSubmit, formState:{isValid} } = useForm({
@@ -23,7 +26,11 @@ const Form = () => {
     };
     setTransactionStorage(value);
   };
-  
+  const handleCloseModal = () => {
+    setTimeout(()=> {
+      setOpen(false)
+    },0)
+  }
 
   return (
     <>
@@ -46,7 +53,7 @@ const Form = () => {
         />
         <section>
     
-        <S.ButtonSubmit  disabled={!isValid}>Cadastrar</S.ButtonSubmit>
+        <S.ButtonSubmit onClick={handleCloseModal} disabled={!isValid}>Cadastrar</S.ButtonSubmit>
        </section>
       </S.FormContainer>
     </>
