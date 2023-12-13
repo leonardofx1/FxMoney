@@ -12,6 +12,7 @@ import { useContext, useEffect } from "react";
 import { TransactionType } from "../../@types/types";
 
 import useSummaryTransaction from "../hooks/reducerTransactionPrice";
+import { formatCurrency } from '../../utils/formatDatePrice';
 
 const Transaction = () => {
   const{ transaction, getTransactionStorage} = useContext(transactionContext)!
@@ -29,21 +30,21 @@ const Transaction = () => {
           <span>Entradas</span>{" "}
           <ArrowCircleDown size={38} color={thema.colors.green} />
         </S.TransactionIcon>
-        <S.Money>{sumTransaction('entry')}</S.Money>
+        <S.Money>{formatCurrency(sumTransaction('entry'))}</S.Money>
       </S.TransactionSummary>
       <S.TransactionSummary>
         <S.TransactionIcon>
           <span>Saida</span>
           <ArrowCircleUp size={38} color={thema.colors.redDark} />
         </S.TransactionIcon>
-        <S.Money>{sumTransaction('exit')}</S.Money>
+        <S.Money>{formatCurrency(sumTransaction('exit'))}</S.Money>
       </S.TransactionSummary>
       <S.TransactionSummary color="green">
         <S.TransactionIcon>
           <span>Total</span>
           <CurrencyDollar size={32} color={thema.colors.money} />
         </S.TransactionIcon>
-        <S.Money>{sumTransaction('total')}</S.Money>
+        <S.Money>{formatCurrency(sumTransaction('total'))}</S.Money>
       </S.TransactionSummary>
       <SearchBar />
       <S.TransactionTable>
