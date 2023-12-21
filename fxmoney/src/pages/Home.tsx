@@ -1,3 +1,4 @@
+
 import Header from "../components/Header"
 import Transaction from "../components/Transaction"
 
@@ -8,6 +9,7 @@ const Home = () => {
         <>
         <Header />
         <Transaction />
+
         </>
 
     )

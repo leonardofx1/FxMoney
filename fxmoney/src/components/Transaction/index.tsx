@@ -13,6 +13,7 @@ import { TransactionType } from "../../@types/types";
 
 import useSummaryTransaction from "../hooks/reducerTransactionPrice";
 import { formatCurrency } from '../../utils/formatDatePrice';
+import Footer  from "../Footer";
 
 const Transaction = () => {
   const{ transaction, getTransactionStorage} = useContext(transactionContext)!
@@ -25,6 +26,7 @@ const Transaction = () => {
 
   return (
     <S.TransactionContainer>
+      <S.SummaryContainer>
       <S.TransactionSummary>
         <S.TransactionIcon>
           <span>Entradas</span>{" "}
@@ -46,8 +48,9 @@ const Transaction = () => {
         </S.TransactionIcon>
         <S.Money>{formatCurrency(sumTransaction('total'))}</S.Money>
       </S.TransactionSummary>
-      <SearchBar />
+      </S.SummaryContainer>
       <S.TransactionTable>
+      <SearchBar />
   
         <tbody>
       {
@@ -56,6 +59,7 @@ const Transaction = () => {
                            
         </tbody>
       </S.TransactionTable>
+      <Footer /> 
       
     </S.TransactionContainer>
   );

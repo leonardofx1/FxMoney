@@ -9,7 +9,20 @@ export const Header = styled.header`
     width: 100%;
     height:180px;
     min-width: auto;
+    max-height: auto;
+    padding: 1rem;
+   
     background-color: ${thema.colors.gray};
+
+    box-sizing: border-box;
+    @media screen and (max-width:400px) {
+  
+        align-items: center;
+        margin-bottom: 1rem;
+        span{
+            margin-bottom: 1rem;
+        }
+    }
 `
 
 export const HeaderContainer = styled.section`
@@ -19,10 +32,11 @@ export const HeaderContainer = styled.section`
     align-items: center;
 
     width: 100%;
-    max-width:1200px;
+
     height: auto;
 
     padding: .5rem;
+
 
     span {
         font-size: ${thema.font.bigFont};
