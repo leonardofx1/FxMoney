@@ -17,6 +17,8 @@ export const TransactionHistory = styled.tr`
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0;
+    margin: 0.5rem;
+
   }
 `;
 type ColorProps = {

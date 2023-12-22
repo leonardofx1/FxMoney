@@ -1,6 +1,6 @@
 import { MagnifyingGlass } from '@phosphor-icons/react';
 import * as S from './style';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { searchSchema } from '../schema/schema';
 import useContextTransaction from '../../context/useContextTransaction';
@@ -17,14 +17,14 @@ const SearchBar = () => {
     }) 
     
   
-    const handleSearchTransaction =({search}:{search:string})=> {
+    const handleSearchTransaction =({search}:FieldValues)=> {
        
         setTransaction(transaction.filter((trans) => trans.category === search || trans.description === search))
     }
-    const busca = watch('search')
+    const busca:string = watch('search')
     useEffect(()=> {
         busca?.length === 0 && getTransactionStorage('transaction')
-    },[busca])
+    },[busca, getTransactionStorage])
     return (
     
     <S.Form onSubmit={handleSubmit(handleSearchTransaction)}>
