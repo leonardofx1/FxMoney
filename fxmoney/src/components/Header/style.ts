@@ -22,6 +22,9 @@ export const Header = styled.header`
         span{
             margin-bottom: 1rem;
         }
+        section {
+            justify-content: center;
+        }
     }
 `
 
@@ -30,11 +33,10 @@ export const HeaderContainer = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: .5rem;
 
     width: 100%;
-
     height: auto;
-
     padding: .5rem;
 
 
