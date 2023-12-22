@@ -12,9 +12,8 @@ export const TransactionHistory = styled.tr`
 
   padding: 1.5rem;
 
-  gap: .2rem;
-  @media screen  and (max-width:750px){
-
+  gap: 0.2rem;
+  @media screen and (max-width: 750px) {
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0;
@@ -27,19 +26,20 @@ type ColorProps = {
 export const TransactionTableColumn = styled.td<ColorProps>`
   color: ${(props) => thema.colors[props.color]};
   min-width: 150px;
-  width:100%;
+  width: 100%;
   &:nth-child(2) {
     font-weight: bold;
     font-size: 1.2rem;
-
   }
 
-  &:last-child{
+  &:last-child {
     text-align: end;
   }
-
 `;
-type PriceProps = { varient: 'entry' | 'exit' }
-export const TransactionTablePrice = styled(TransactionTableColumn) <PriceProps>`
-    color: ${(props) => props.varient === 'entry' ? thema.colors.green : thema.colors.redDark}
+type PriceProps = { variant: string };
+export const TransactionTablePrice = styled.td<PriceProps>`
+  min-width: 150px;
+  width: 100%;
+  color: ${(props) =>
+    props.variant === "entry" ? thema.colors.green : thema.colors.redDark};
 `;
